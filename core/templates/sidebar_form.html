@@ -1,0 +1,20 @@
+<form class="feedback_form" method="post" action="" id="form_action">
+    {% csrf_token %}
+    <input type="text" hidden name="theme" value="Форма обратной связи"/>
+    <input
+            type="text"
+            placeholder="Ваше имя"
+            name="user"
+            class="contacts-input services__contacts-name"
+            required
+    />
+    <input
+            type="text"
+            placeholder="Ваш номер телефона"
+            name="phone"
+            pattern="\d+"
+            class="contacts-input services__contacts-phone"
+            required
+    />
+    <button type="submit" class="services__contacts-button button--dark">Свяжитесь со мной</button>
+</form>

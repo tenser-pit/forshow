@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %}Выставки{% endblock %}
+
+{% block barbar %}exhibitions{% endblock %}
+
+
+
+{% block mobile_sidebar %}
+    <div class="sidebar--secondary-mobile">
+        <div class="desktop">
+            <p class="sidebar-service">Выставки</p>
+            <ul class="sidebar-services">
+                {% for exhibition in exhibitions %}
+                    <li class="sidebar-services-item">
+                        <a href="/exhibitions/#{{ exhibition.link }}" class="sidebar-services-link">
+                            {{ exhibition.sidebar_title_ru }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="desktop">
+        <p class="sidebar-service">Выставки</p>
+        <ul class="sidebar-services">
+                {% for exhibition in exhibitions %}
+                    <li class="sidebar-services-item">
+                        <a href="/exhibitions/#{{ exhibition.link }}" class="sidebar-services-link">
+                            {{ exhibition.sidebar_title_ru }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-container contact-form">
+
+        <div class="exhibitions">
+            <div class="exhibitions__promo">
+                <div class="">
+                    <h1 class="exhibitions__title h1"><strong>Выставки</strong> с&nbsp;участием компании</h1>
+                    <p class="exhibitions__subtitle">
+                        мы активно участвуем в различных выставках и ищем дистрибьюторов нашей продукции
+                    </p>
+                    <div class="services__top-chains">
+                        <div class="services__cards">
+                            {% for exhibition in exhibitions %}
+                                <a href="/exhibitions/#{{ exhibition.link }}" class="service-card">
+                                    {{ exhibition.service_card_ru|safe }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for exhibition in exhibitions %}
+                <div class="exhibitions__slider exhibitions-slider exhibitions-slider--{{ exhibition.link }}" id="{{ exhibition.link }}">
+                    {{ exhibition.content_ru|safe }}
+                </div>
+            {% endfor %}
+        </div>
+        {% include 'contact_form.html' %}
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+Сообщение с сайта antaross.com
+
+Имя: {{ user }}
+{% if callback %}Связаться через: {{ callback }} {% endif %}
+{% if phone %}Телефон: {{ phone }}{%endif%}
+{% if email %}Email: {{ email }}{%endif%}
+
+{% if service %}Услуга: {{ service }}{% endif %}
+{% if text %}Задача: {{ text }}{% endif %}
+{% if file %}Файл: {{ file }}{% endif %}
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Антаросс - производитель инновационных продуктов медицинского назначения
+{% endblock %}
+
+{% block barbar %}home{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="swiper content__slider">
+            <div class="swiper-wrapper">
+                {% for slide in slides %}
+                <div class="swiper-slide content__slider-slide content__slider-slide--{{ slide.pk }}"
+                     style="background-image: url({{ slide.image_ru.url }}) ">
+                        <div class="service">
+                            <div class="service__top">
+                                <h2 class="h1">{{ slide.title_ru | safe}}</h2>
+                                <div class="service__description">
+                                    <p>{{ slide.description_ru | safe}}</p>
+                                </div>
+                            </div>
+                            <div class="service__bottom">
+                                <div class="service__progress">
+                                    <div class="service__progress-text">проект реализован на
+                                        <span class="service__progress-count">{{ slide.percentage_ru }}%</span>
+                                    </div>
+                                    <div class="service__progress-bar"><span style="width: 100%;"></span></div>
+                                </div>
+                                <a href="{{ slide.link_button_ru }}" class="service__about-link">{{ slide.text_button_ru}}</a>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination content__slider-pagination"></div>
+        </div>
+
+
+    </div>
+{% endblock %}

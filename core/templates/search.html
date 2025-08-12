@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Поиск{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="search-content">
+            <div class="search-form-box">
+                <input type="text" placeholder="ЧТО ВЫ ИЩЕТЕ?">
+            </div>
+
+            <div class="search-auto-content">
+                <div class="search-auto-drop">
+                    <div class="drop-title">ЧАСТО ИЩУТ:</div>
+                    <div class="drop-content">
+                        <div>
+                            <a href="/services/#factory">КОНТРАКТНОЕ ПРОИЗВОДСТВО <br>МЕДИЦИНСКОЙ ТЕХНИКИ</a>
+                        </div>
+                        <div>
+                            <a href="/services/#development">РАЗРАБОТКА <br>МЕДИЦИНСКИХ ИЗДЕЛИЙ</a>
+                        </div>
+                        <div>
+                            <a href="/services/#registration">РЕГИСТРАЦИЯ МЕДИЦИНСКОЙ ТЕХНИКИ <br>В МИНИСТЕРСТВЕ ЗДРАВООХРАНЕНИЯ</a>
+                        </div>
+                        <div>
+                            <a href="/services/#localization">ЛОКАЛИЗАЦИЯ <br>МЕДИЦИНСКОЙ ТЕХНИКИ</a>
+                        </div>
+                        <div>
+                            <a href="/services/#soft">РАЗРАБОТКА ПРОГРАММНОГО <br>ОБЕСПЕЧЕНИЯ МЕДИЦИНСКОЙ ТЕХНИКИ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="services__contacts">
+    <div class="services__contacts-title">{{ contactUs.title | safe }}</div>
+    <div class="services__registration-row">
+        <form class="services__contacts-form" id="form_action">
+            <p class="services__development-title">{{ contactUs.subtitle | safe }}</p>
+            <input type="text" placeholder="Your name" name="user" class="contacts-input services__contacts-name">
+            <input type="text" placeholder="Your phone number" name="phone" class="contacts-input services__contacts-phone" required>
+            <button type="submit" class="services__contacts-button button--red">CONTACT ME</button>
+        </form>
+    </div>
+    <div class="services__footer">
+        <p class="services__footer-text">{{ contactUs.content | safe }}</p>
+    </div>
+</div>
+<div class="sidebar--email">
+    <p>For more information write to:</p>
+    <p class="email">
+        EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+    </p>
+</div>

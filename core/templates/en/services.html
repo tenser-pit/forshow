@@ -1,0 +1,271 @@
+{% extends 'en/base.html' %}
+{% load static %}
+
+{% block title %}{{ services.title | safe}}{% endblock %}
+
+{% block barbar %}services{% endblock %}
+
+{% block mobile_sidebar %}
+    <div class="sidebar--secondary-mobile">
+        <div class="desktop">
+            <p class="sidebar-service">Services</p>
+            <ul class="sidebar-services">
+                <li class="sidebar-services-item">
+                    <a href="/en/services/#factory" class="sidebar-services-link">
+                        Contract production of medical equipment
+                    </a>
+                </li>
+                <li class="sidebar-services-item">
+                    <a href="/en/services/#development" class="sidebar-services-link">
+                        Development of medical devices
+                    </a>
+                </li>
+                <li class="sidebar-services-item">
+                    <a href="/en/services/#soft" class="sidebar-services-link">
+                        Development of medical equipment software
+                    </a>
+                </li>
+                <li class="sidebar-services-item">
+                    <a href="/en/services/#localization" class="sidebar-services-link">
+                        Localization of medical equipment
+                    </a>
+                </li>
+                <li class="sidebar-services-item">
+                    <a href="/en/services/#registration" class="sidebar-services-link">
+                        Registration of medical equipment in the ministry of health
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="desktop">
+        <p class="sidebar-service">Services</p>
+        <ul class="sidebar-services">
+            <li class="sidebar-services-item">
+                <a href="/en/services/#factory" class="sidebar-services-link">
+                    Contract production of medical equipment
+                </a>
+            </li>
+            <li class="sidebar-services-item">
+                <a href="/en/services/#development" class="sidebar-services-link">
+                    Development of medical devices
+                </a>
+            </li>
+            <li class="sidebar-services-item">
+                <a href="/en/services/#soft" class="sidebar-services-link">
+                    Development of medical equipment software
+                </a>
+            </li>
+            <li class="sidebar-services-item">
+                <a href="/en/services/#localization" class="sidebar-services-link">
+                    Localization of medical equipment
+                </a>
+            </li>
+            <li class="sidebar-services-item">
+                <a href="/en/services/#registration" class="sidebar-services-link">
+                    Registration of medical equipment in the ministry of health
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar--email">
+        <p>For more information write to:</p>
+        <p class="email">
+            EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-container services services-padding contact-form">
+        {{ services.content | safe }}
+        {% include 'en/contact_form.html' %}
+    </div>
+
+{% endblock %}
+
+
+{% block modals %}
+    <div class="contacts-modal modal">
+        <div class="modal__bg contact-modal-closer"></div>
+        <div class="modal__inner">
+            <form action="" method="post" id="action_attach" enctype="multipart/form-data">
+                <input type="hidden" name="theme" value="Форма обратной связи с задачей">
+                {% csrf_token %}
+                <div class="modal__closer contact-modal-closer">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <g clip-path="url(#clip0_56_512)">
+                                <path d="M19.1666 0.833496L0.833252 19.1668" stroke="black" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M0.833252 0.833496L19.1666 19.1668" stroke="black" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_56_512">
+                                    <rect width="20" height="20" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </i>
+                </div>
+                <div class="modal__header">
+                    <p class="modal__title">Tell us about your project</p>
+                    <p class="modal__subtitle">Processing time for your application: 1-2 days.</p>
+                </div>
+                <div class="modal__header--error hidden">
+                    <p class="modal__title"><span class="paragraph--red">Error</span></p>
+                    <p class="modal__subtitle">
+                        <span class="paragraph--red">
+                        Error, try again later</span>
+                    </p>
+                </div>
+                <div class="modal__header--success hidden">
+                    <p class="modal__title"><span class="paragraph--red">Success</span></p>
+                    <p class="modal__subtitle">
+                        <span class="paragraph--red">
+                        Form submitted successfully!</span>
+                    </p>
+                </div>
+                <div class="modal__header--load hidden">
+                    <p class="modal__title"><span class="paragraph--red">Loading...</span></p>
+                    <p class="modal__subtitle">
+                        <span class="paragraph--red">
+                        Please, wait</span>
+                    </p>
+                </div>
+
+                <div class="modal__form-hide">
+                    <div class="modal__form">
+                        <div class="modal__input">
+                            <input autocomplete="off" required type="text" class="contacts-input modal__input-name"
+                                   placeholder="Your name" name="user">
+                        </div>
+                        <div class="modal__radios">
+                            <div class="modal__radio">
+                                <label for="social1">
+                                    <input checked type="radio" hidden name="callback" id="social1" class="modal__radio-input" value="Звонок в рабочее время">
+                                    <i class="modal__radio-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                            <g clip-path="url(#clip0_56_476)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#444444" d="M15.6289 12.0511C15.3857 11.8783 12.7105 10.0991 12.3841 9.90069C12.2433 9.8111 12.0641 9.7727 11.8785 9.7727C11.6353 9.7727 11.3665 9.84309 11.0977 9.9839C10.8417 10.1183 10.0609 10.5599 9.67688 10.7839C9.33768 10.5471 8.55048 9.94549 7.30888 8.69749C6.07368 7.4623 5.46568 6.66869 5.22248 6.32949C5.44008 5.9455 5.88168 5.17109 6.01608 4.9151C6.27208 4.4287 6.29768 3.9487 6.09288 3.6223C5.90088 3.3151 4.12808 0.627095 3.94248 0.377495C3.76968 0.140695 3.46248 0.0126953 3.12968 0.0126953C2.86728 0.0126953 2.58568 0.0894953 2.34248 0.262295C2.31688 0.268695 -0.0319201 1.9711 7.98822e-05 2.9375C0.0896799 5.6575 2.73288 8.8575 4.93448 11.0591C7.13608 13.2607 10.3361 15.9103 13.0689 15.9935H13.0945C14.0545 15.9935 15.7313 13.6767 15.7505 13.6511C16.1921 13.0175 16.0321 12.3263 15.6289 12.0447V12.0511ZM14.9377 13.0751C14.3041 13.9519 13.4081 14.8671 13.0561 15.0015C11.1809 14.9119 8.55688 13.2671 5.64488 10.3615C2.73288 7.44949 1.08808 4.8191 0.99848 2.9567C1.12648 2.6047 2.04168 1.6959 2.91208 1.0687C2.97608 1.0239 3.05288 0.998295 3.12968 0.998295C3.14888 0.998295 3.16168 0.998295 3.16808 0.998295C3.44968 1.4079 4.95368 3.6863 5.22888 4.1151C5.22888 4.15989 5.21608 4.27509 5.12648 4.4351C5.03688 4.60789 4.74888 5.1135 4.34568 5.82389L4.03208 6.37429L4.39688 6.89269C4.66568 7.2767 5.31208 8.1151 6.59208 9.39509C7.87208 10.6751 8.71048 11.3215 9.09448 11.5903L9.61288 11.9551L10.1633 11.6415C10.6945 11.3343 11.3409 10.9695 11.5521 10.8607C11.7185 10.7711 11.8337 10.7647 11.8657 10.7647H11.8785C12.2625 11.0079 14.5921 12.5503 15.0017 12.8383C15.0081 12.8767 15.0017 12.9663 14.9249 13.0751H14.9377ZM10.0673 5.88789C10.1313 5.95189 10.2209 5.99029 10.3233 5.99029H10.5153L14.0993 6.0031C14.3041 6.0031 14.4705 5.8303 14.4705 5.6319V5.37589C14.4385 5.13909 14.2529 4.9983 14.0545 5.0047H11.6929L15.7697 0.908695C15.9617 0.716695 15.9617 0.396695 15.7697 0.204695C15.5777 0.0126953 15.2577 0.0126953 15.0657 0.204695L10.9697 4.30069L10.9825 1.8879C10.9825 1.6831 10.8289 1.5103 10.6241 1.5167H10.3681C10.1633 1.5167 9.99688 1.6447 9.99688 1.8431L9.98408 5.4463C9.98408 5.4463 9.99688 5.44629 9.99688 5.45909L9.97768 5.64469C9.97768 5.74709 9.99688 5.8367 10.0673 5.90069V5.88789Z"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_56_476">
+                                                    <rect width="16.0128" height="16" fill="#444444"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </i>
+                                    <span class="modal__radio-label">call during work hours</span>
+                                </label>
+                            </div>
+                            <div class="modal__radio">
+                                <label for="social3">
+                                    <input type="radio" hidden name="callback" id="social3" class="modal__radio-input" value="E-mail">
+                                    <i class="modal__radio-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                            <g clip-path="url(#clip0_56_448)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1604 7.49558C16.1604 7.49558 16.1604 7.58173 16.1604 7.61866V14.9787C16.1604 15.5325 15.705 15.9879 15.1512 15.9879H0.94808C0.394234 15.9879 0.0126953 15.5325 0.0126953 14.9787V7.44635C0.0126953 7.04019 0.246541 6.67096 0.394234 6.54789L7.00346 0.209425C7.58193 -0.0613446 8.80039 -0.0613446 9.15731 0.209425L15.7665 6.59712C15.8281 6.64635 15.8896 6.70789 15.9512 6.78173C16.0742 6.96635 16.1481 7.17558 16.1481 7.45866V7.50789L16.1604 7.49558ZM15.1512 8.50481L11.9388 11.3479L15.1512 14.3017V8.50481ZM14.4742 14.991L8.38193 9.52635C8.28346 9.4525 8.13577 9.40327 7.98808 9.40327C7.84039 9.40327 7.705 9.4525 7.59423 9.53866L5.35423 11.6063C5.35423 11.6063 5.2927 11.6802 5.25577 11.7787L1.68654 15.0033H14.4619L14.4742 14.991ZM0.94808 14.2894L4.20962 11.2863L0.94808 8.48019V14.2894ZM8.43116 0.923271C8.3327 0.824809 8.20962 0.775578 8.07423 0.775578C7.93885 0.775578 8.00039 0.824809 7.71731 0.923271L1.57577 6.79404H1.55116L1.12039 7.2125L4.94808 10.5971L6.94193 8.76327C7.56962 8.25866 8.43116 8.27096 9.02193 8.73866L11.1635 10.671L15.0035 7.26173L14.265 6.43712H14.1419L8.43116 0.923271Z" fill="#444444"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_56_448">
+                                                    <rect width="16.1477" height="16" fill="white" transform="translate(0.0126953)"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </i>
+                                    <span class="modal__radio-label">E-mail</span>
+                                </label>
+                            </div>
+                            <div class="modal__radio">
+                                <label for="social4">
+                                    <input type="radio" hidden name="callback" id="social4" class="modal__radio-input" value="Telegram">
+                                    <i class="modal__radio-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                            <g clip-path="url(#clip0_56_487)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.8336 1.42049C14.8415 1.42011 14.8494 1.41992 14.8573 1.41992C15.2352 1.41992 15.6038 1.58928 15.8252 1.93996C16.0386 2.27789 16.0677 2.70675 15.9572 3.15357L13.739 13.4483C13.7389 13.4486 13.739 13.448 13.739 13.4483C13.6465 13.884 13.4361 14.301 13.0147 14.4882C12.5972 14.6738 12.1527 14.5538 11.7836 14.3511C11.7651 14.3409 11.7473 14.3296 11.7302 14.3172L6.43601 10.4672C6.35261 10.4074 6.2839 10.3287 6.23602 10.2368C6.1874 10.1435 6.16183 10.0397 6.16183 9.93411C6.16183 9.82848 6.1874 9.72469 6.23602 9.63143C6.27877 9.5494 6.33813 9.47784 6.40971 9.4209L9.66403 6.52716L5.00871 9.41912C4.92302 9.47328 4.82657 9.50757 4.72647 9.51989C4.62722 9.53211 4.52641 9.52248 4.43117 9.49159L1.18112 8.47957C0.960048 8.41556 0.746304 8.31759 0.582211 8.16732C0.407465 8.0073 0.273869 7.76834 0.304749 7.47763C0.333355 7.20833 0.492945 7.00147 0.658973 6.85778C0.829135 6.71052 1.05076 6.58904 1.30496 6.48915L1.3103 6.48705L14.3333 1.54094C14.4909 1.46956 14.6607 1.42872 14.8336 1.42049ZM14.8689 2.42014C14.8242 2.42374 14.7807 2.43537 14.7406 2.45429C14.7288 2.45987 14.7168 2.46499 14.7046 2.46962L1.66818 7.42086C1.58227 7.45473 1.51256 7.48776 1.4568 7.51832C1.45869 7.51887 1.46059 7.51942 1.46251 7.51997L1.47339 7.52309L4.59889 8.49646L12.1611 3.79868C12.2974 3.717 12.44 3.66116 12.5786 3.63296C12.7077 3.6067 12.8724 3.59675 13.0331 3.65115C13.1162 3.67926 13.2221 3.73309 13.3092 3.83568C13.4035 3.94667 13.4521 4.08786 13.446 4.23411C13.4354 4.48715 13.2716 4.65877 13.1746 4.74369L7.36705 9.90779L12.2909 13.4885C12.5228 13.6101 12.6073 13.575 12.6086 13.5744C12.6114 13.5732 12.6309 13.5645 12.66 13.5195C12.6918 13.4702 12.7306 13.3832 12.7607 13.2411L12.761 13.2394L14.9813 2.93514L14.9852 2.91866C15.0552 2.63986 15.0037 2.51182 14.9797 2.47387C14.9633 2.4479 14.9362 2.42271 14.8689 2.42014Z" fill="#444444"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_56_487">
+                                                    <rect width="16" height="16" fill="white" transform="translate(0.1604)"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </i>
+                                    <span class="modal__radio-label">Telegram</span>
+                                </label>
+                            </div>
+                            <div class="modal__radio">
+                                <label for="social2">
+                                    <input type="radio" hidden name="callback" id="social2" class="modal__radio-input" value="WhatsApp">
+                                    <i class="modal__radio-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                                            <g clip-path="url(#clip0_56_493)">
+                                                <path d="M6.08447 4.78019C6.20647 4.78352 6.3418 4.79019 6.47047 5.07552C6.5558 5.26552 6.69913 5.61552 6.81647 5.90086C6.9078 6.12286 6.98247 6.30552 7.00113 6.34286C7.0438 6.42819 7.07047 6.52619 7.01447 6.64152L6.9958 6.68019C6.95759 6.76976 6.90588 6.85295 6.84247 6.92686C6.81024 6.96426 6.77846 7.00204 6.74713 7.04019C6.69047 7.10952 6.6338 7.17752 6.5858 7.22552C6.4998 7.31086 6.41113 7.40286 6.5098 7.57352C6.60913 7.74419 6.95513 8.30552 7.46647 8.75819C7.84073 9.09514 8.26978 9.3657 8.73513 9.55819C8.7818 9.57819 8.8198 9.59486 8.84847 9.60886C9.0198 9.69419 9.1218 9.68086 9.22047 9.56619C9.3198 9.45086 9.64913 9.06686 9.76513 8.89619C9.87713 8.72552 9.9918 8.75219 10.1505 8.81086C10.3091 8.87019 11.1531 9.28419 11.3245 9.36886L11.4198 9.41552C11.5391 9.47219 11.6198 9.51152 11.6545 9.56886C11.6971 9.64152 11.6971 9.98219 11.5558 10.3835C11.4105 10.7835 10.7111 11.1675 10.3945 11.1969L10.3045 11.2075C10.0138 11.2422 9.6458 11.2875 8.3338 10.7709C6.71647 10.1349 5.64913 8.55752 5.4338 8.23819C5.42231 8.2211 5.41053 8.20421 5.39847 8.18752L5.39447 8.18219C5.29647 8.05086 4.6958 7.24752 4.6958 6.41819C4.6958 5.62486 5.08713 5.21152 5.26513 5.02352L5.29647 4.99019C5.35408 4.9251 5.42448 4.87257 5.50327 4.83587C5.58207 4.79917 5.66757 4.77908 5.75447 4.77686C5.8698 4.77686 5.9858 4.77686 6.08447 4.78019Z" fill="#444444"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.240738 15.591C0.225599 15.6457 0.225095 15.7034 0.239276 15.7583C0.253457 15.8133 0.281821 15.8635 0.321505 15.9039C0.36119 15.9443 0.410791 15.9735 0.465302 15.9885C0.519814 16.0035 0.577307 16.0038 0.63198 15.9894L4.33312 15.0184C5.50739 15.6569 6.82171 15.9915 8.15717 15.9918H8.16039C12.5677 15.9918 16.1604 12.4052 16.1604 7.99755C16.1632 6.94627 15.9576 5.90493 15.5557 4.93416C15.1538 3.96339 14.5636 3.08257 13.8193 2.343C13.0765 1.59719 12.1941 1.00622 11.2229 0.604124C10.2518 0.202022 9.21093 -0.00327801 8.16039 3.95749e-05C3.75308 3.95749e-05 0.1604 3.58585 0.1604 7.99352C0.1604 9.39607 0.528345 10.7736 1.22889 11.989L0.240738 15.591ZM2.39137 12.31C2.43384 12.1553 2.44521 11.9935 2.42479 11.8343C2.40438 11.6751 2.3526 11.5215 2.27247 11.3825C1.67808 10.3528 1.36519 9.18367 1.36546 7.99352C1.36546 4.2593 4.41265 1.20983 8.16039 1.20983C9.98404 1.20983 11.6856 1.91715 12.9694 3.20033C13.6011 3.82752 14.1021 4.57474 14.443 5.39839C14.784 6.22203 14.9581 7.10561 14.9553 7.99755C14.9553 11.7318 11.9081 14.782 8.16039 14.782H8.15637C7.02176 14.7815 5.90518 14.4971 4.90753 13.9546C4.63863 13.8084 4.32445 13.7703 4.02864 13.8481L1.80972 14.4296L2.39137 12.31Z" fill="#444444"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_56_493">
+                                                    <rect width="16" height="16" fill="white" transform="translate(0.1604)"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </i>
+                                    <span class="modal__radio-label">WhatsApp</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal__input">
+                            <input id="callback_input" autocomplete="off" type="text" pattern="\d+" class="contacts-input modal__input-phone"
+                                   placeholder="Your phone number" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="modal__select">
+                        <input type="hidden" required name="service" id="sc">
+                        <div class="modal__select-input">
+                            <span class="modal__select-value" id="selected-form-service">Choice service</span>
+                            <span class="modal__select-chevron">
+                            <img src="{% static 'assets/services/chevron-down.svg' %}" alt="">
+                        </span>
+                        </div>
+                        <ul class="modal__select-options">
+                            <li class="modal__select-option">Contract production</li>
+                            <li class="modal__select-option">Development of medical devices</li>
+                            <li class="modal__select-option">Development of medical equipment software</li>
+                            <li class="modal__select-option">Localization of medical equipment</li>
+                            <li class="modal__select-option">Registration of medical equipment</li>
+                            <li class="modal__select-option">Other</li>
+                        </ul>
+                    </div>
+                    <div class="">
+                        <textarea placeholder="Describe your task" name="text" id="" cols="30" rows="4" class="modal__textarea-input"></textarea>
+
+                        <div class="modal__upload">
+                            <input hidden class="modal__input-file" type="file" id="uploadInput" name="files">
+                            <img src="{% static '/assets/services/paperclip.svg' %}" alt="">
+                            <span id="uploadFilename"></span>
+                            <label id="uploadLabel" for="uploadInput">
+                                Attach technical specifications or files (max 30MB)
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="modal__row modal__footer-row modal__row--alignCenter">
+                        <button type="submit" class="modal__done-btn button--red">SEND</button>
+                        <div class="modal__info">
+                            <p class="modal__personal">
+                                By clicking on the button you agree to processing of
+                                <a href="#">
+                                    <span class="paragraph--red">personal data</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'en/base.html' %}
+{% load static %}
+
+{% block title %}
+    ANTAROSS - manufacturer of innovative and useful products for medical and near - medical purposes
+{% endblock %}
+
+{% block barbar %}home{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="swiper content__slider">
+            <div class="swiper-wrapper">
+                {% for slide in slides %}
+                <div class="swiper-slide content__slider-slide content__slider-slide--{{ slide.pk }}"
+                     style="background-image:url({{ slide.image.url }}) ">
+                        <div class="service">
+                            <div class="service__top">
+                                <h2 class="h1">{{ slide.title | safe}}</h2>
+                                <div class="service__description">
+                                    <p>{{ slide.description | safe}}</p>
+                                </div>
+                            </div>
+                            <div class="service__bottom">
+                                <div class="service__progress">
+                                    <div class="service__progress-text">The project is implemented by
+                                        <span class="service__progress-count">{{ slide.percentage }}%</span>
+                                    </div>
+                                    <div class="service__progress-bar"><span style="width: 100%;"></span></div>
+                                </div>
+                                <a href="{{ slide.link_button }}" class="service__about-link">{{ slide.text_button}}</a>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination content__slider-pagination"></div>
+        </div>
+    </div>
+{% endblock %}

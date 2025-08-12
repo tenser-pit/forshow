@@ -1,0 +1,40 @@
+{% extends 'en/base.html' %}
+{% load static %}
+
+{% block title %}{{ dealers.title }}{% endblock %}
+
+{% block sidebar %}
+    <div class="desktop">
+        <div class="sidebar__form">
+            <h4>CONTACT US AND WE WILL DEVELOP A CUSTOMIZED SOLUTION FOR YOU!</h4>
+            {% include 'en/sidebar_form.html' %}
+        </div>
+    </div>
+    <div class="sidebar--email">
+        <p>For more information write to:</p>
+        <p class="email">
+            EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        {{ dealers.content | safe }}
+        <div class="dealers__form">
+            <div class="desktop">
+                <div class="sidebar__form">
+                    <h4>CONTACT US AND WE WILL DEVELOP A CUSTOMIZED SOLUTION FOR YOU!</h4>
+                    <p>For feedback, please specify how we can contact you.</p>
+                    {% include 'en/sidebar_form.html' %}
+                </div>
+            </div>
+            <div class="sidebar--email">
+                <p>For more information write to:</p>
+                <p class="email">
+                    EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

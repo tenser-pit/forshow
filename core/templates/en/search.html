@@ -1,0 +1,37 @@
+{% extends 'en/base.html' %}
+{% load static %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="search-content">
+            <div class="search-form-box">
+                <input type="text" placeholder="SEARCH...">
+            </div>
+
+            <div class="search-auto-content">
+                <div class="search-auto-drop">
+                    <div class="drop-title">FREQUENTLY SEARCHED:</div>
+                    <div class="drop-content">
+                        <div>
+                            <a href="/en/services/#factory">CONTRACT PRODUCTION <br>OF MEDICAL EQUIPMENT</a>
+                        </div>
+                        <div>
+                            <a href="/en/services/#development">DEVELOPMENT <br>OF MEDICAL DEVICES</a>
+                        </div>
+                        <div>
+                            <a href="/en/services/#registration">REGISTRATION OF MEDICAL EQUIPMENT <br>IN THE MINISTRY OF HEALTH</a>
+                        </div>
+                        <div>
+                            <a href="/en/services/#localization">LOCALIZATION <br>OF MEDICAL EQUIPMENT</a>
+                        </div>
+                        <div>
+                            <a href="/en/services/#soft">DEVELOPMENT <br>OF MEDICAL EQUIPMENT SOFTWARE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

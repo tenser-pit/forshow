@@ -1,0 +1,69 @@
+{% extends 'en/base.html' %}
+{% load static %}
+
+{% block title %}Exhibitions{% endblock %}
+
+{% block barbar %}exhibitions{% endblock %}
+
+{% block mobile_sidebar %}
+    <div class="sidebar--secondary-mobile">
+        <div class="desktop">
+            <p class="sidebar-service">Exhibitions</p>
+            <ul class="sidebar-services">
+                {% for exhibition in exhibitions %}
+                    <li class="sidebar-services-item">
+                        <a href="en/exhibitions/#{{ exhibition.link }}" class="sidebar-services-link">
+                            {{ exhibition.sidebar_title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="desktop">
+        <p class="sidebar-service">Exhibitions</p>
+            <ul class="sidebar-services">
+                {% for exhibition in exhibitions %}
+                    <li class="sidebar-services-item">
+                        <a href="/en/exhibitions/#{{ exhibition.link }}" class="sidebar-services-link">
+                            {{ exhibition.sidebar_title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content-container contact-form">
+        <div class="exhibitions">
+            <div class="exhibitions__promo">
+                <div class="">
+                    <h1 class="exhibitions__title h1"><strong>EXHIBITIONS </strong>WITH COMPANY PARTICIPATION</h1>
+                    <p class="exhibitions__subtitle">
+                        WE ACTIVELY PARTICIPATE IN VARIOUS EXHIBITIONS AND ARE LOOKING FOR DISTRIBUTORS FOR OUR PRODUCTS
+                    </p>
+                    <div class="services__top-chains">
+                        <div class="services__cards">
+                            {% for exhibition in exhibitions %}
+                                <a href="/en/exhibitions/#{{ exhibition.link }}" class="service-card">
+                                    {{ exhibition.service_card|safe }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for exhibition in exhibitions %}
+                <div class="exhibitions__slider exhibitions-slider exhibitions-slider--{{ exhibition.link }}" id="{{ exhibition.link }}">
+                    {{ exhibition.content|safe }}
+                </div>
+            {% endfor %}
+        </div>
+        {% include 'en/contact_form.html' %}
+    </div>
+{% endblock %}

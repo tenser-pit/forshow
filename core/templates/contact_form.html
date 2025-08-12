@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="services__contacts">
+    <div class="services__contacts-title">{{ contactUs.title_ru | safe }}</div>
+    <div class="services__registration-row">
+        <form class="services__contacts-form feedback_form" method="post" action="" id="form_action">
+            {% csrf_token %}
+            <input type="text" hidden name="theme" value="Форма обратной связи"/>
+            <p class="services__development-title">{{ contactUs.subtitle_ru | safe }}</p>
+            <input type="text" placeholder="Ваше имя" name="user" class="contacts-input services__contacts-name" required>
+            <input type="text" pattern="\d+" placeholder="Ваш номер телефона" name="phone" class="contacts-input services__contacts-phone" required>
+            <button type="submit" class="services__contacts-button button--red">Свяжитесь со мной</button>
+        </form>
+    </div>
+    <div class="services__footer">
+        <p class="services__footer-text">{{ contactUs.content_ru | safe }}</p>
+    </div>
+</div>
+<div class="sidebar--email">
+    <p>Для получения более подробной информации пишите на почту:</p>
+    <p class="email">
+        EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+    </p>
+</div>

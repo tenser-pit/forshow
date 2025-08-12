@@ -1,0 +1,39 @@
+{% extends 'en/base.html' %}
+{% load static %}
+
+{% block title %}{{ contacts.title }}{% endblock %}
+
+{% block sidebar %}
+    <div class="desktop">
+        <div class="sidebar__form form-contacts">
+            <h4>CONTACT US</h4>
+            <p>For feedback, please specify how we can contact you.</p>
+            {% include 'en/sidebar_form.html' %}
+        </div>
+    </div>
+    <div class="sidebar--email">
+        <p>We always welcome cooperation!</p>
+        <p class="email">
+            EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ contacts.content | safe }}
+    <div class="contacts__contact-form">
+        <div class="desktop">
+            <div class="sidebar__form form-contacts">
+                <h4>CONTACT US</h4>
+                <p>For feedback, please specify how we can contact you.</p>
+                {% include 'en/sidebar_form.html' %}
+            </div>
+        </div>
+    </div>
+    <div class="sidebar--email">
+        <p>We always welcome cooperation!</p>
+        <p class="email">
+            EMAIL: <a href="mailto:g@antaross.com" class="red">G@ANTAROSS.COM</a>
+        </p>
+    </div>
+{% endblock %}

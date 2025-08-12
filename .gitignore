@@ -1,0 +1,6 @@
+db.sqlite3
+/venv/
+/media/
+
+.idea
+/antaross/local_settings.py
